@@ -2,6 +2,7 @@ import "./App.css";
 import React from "react";
 import TopBar from "./components/TopBar";
 import About from "./components/About";
+import Category from "./components/Category";
 import Contact from "./components/Contact";
 import Policy from "./components/Policy";
 import NavBar from "./components/NavBar";
@@ -29,6 +30,7 @@ function App() {
           <Route path="/contact" component={Contact} exact />
           <Route path="/policy" component={Policy} exact />
           <Route path={"/about"} component={About} exact />
+          <Route path={"/category"} component={Category} exact />
           <Route path="/" component={HomeSrceen} exact />
         </Switch>
         <Footer />

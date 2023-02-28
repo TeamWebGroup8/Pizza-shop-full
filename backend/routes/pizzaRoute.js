@@ -5,7 +5,7 @@ const pizzaModel = require("../models/pizzaModel");
 //GET ALL PIZZA || @GET REQUEST
 router.get("/getAllPizzas", async (req, res) => {
   try {
-    const pizzas = await pizzaModel.find({});
+    const pizzas = await pizzaModel.find().sort({_id:-1});
     res.send(pizzas);
   } catch (error) {
     res.json({ message: error });
@@ -17,7 +17,7 @@ router.post("/addpizza", async (req, res) => {
     const newPizza = new pizzaModel({
       name: pizza.name,
       image: pizza.image,
-      varients: ["small", "medium", "larg"],
+      varients: ["small", "medium", "large"],
       description: pizza.description,
       category: pizza.category,
       prices: [pizza.prices],
@@ -32,7 +32,8 @@ router.post("/addpizza", async (req, res) => {
 router.post("/getpizzabyid", async (req, res) => {
   const pizzaId = req.body.pizzaId;
   try {
-    const pizza = await pizzaModel.findOne({ _id: pizzaId });
+    // const pizza = await pizzaModel.findOne({ _id: pizzaId });
+
     res.send(pizza);
   } catch (error) {
     res.json({ message: error });
@@ -64,5 +65,4 @@ router.post("/deletepizza", async (req, res) => {
     res.status(404).json({ message: error });
   }
 });
-
 module.exports = router;

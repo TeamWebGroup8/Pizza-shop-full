@@ -1,7 +1,7 @@
 
 const mongoose = require("mongoose");
 
-const pizzaSchema = new mongoose.Schema({
+const pizzaSchema =  mongoose.Schema({
     name: {
         type: String,
         required: true,

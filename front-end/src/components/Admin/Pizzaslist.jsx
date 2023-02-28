@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
-import { Table } from "react-bootstrap";
+import { Table} from "react-bootstrap";
 import { deletePizza, getAllPizzas } from "../../actions/pizzaAction";
 import Loader from "../../components/Loader";
 import Error from "../../components/Error";
@@ -11,10 +11,13 @@ const Pizzaslist = () => {
   const dispatch = useDispatch();
   const pizzastate = useSelector((state) => state.getAllPizzaReducer);
   const { loading, pizzas, error } = pizzastate;
-  console.log(pizzas);
+  // console.log(pizzas);
   useEffect(() => {
     dispatch(getAllPizzas());
   }, [dispatch]);
+
+
+
   return (
     <>
       {loading ? (
@@ -59,13 +62,19 @@ const Pizzaslist = () => {
                         <AiFillEdit style={{ cursor: "pointer" }} />
                       </Link>
                       &nbsp;
-                      <AiFillDelete
-                        style={{ color: "red", cursor: "pointer" }}
-                        onClick={() => {
-                          dispatch(deletePizza(pizza._id));
-                        }}
+
+
+                    <AiFillDelete
+                          style={{ color: "red", cursor: "pointer" }}
+                          onClick={() => {
+                            dispatch(deletePizza(pizza._id));
+                          }}
                       />
+
                     </td>
+
+
+
                   </tr>
                 ))}
             </tbody>

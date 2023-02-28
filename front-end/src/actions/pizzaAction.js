@@ -25,6 +25,7 @@ export const getPizzaById = (pizzaId) => async (dispatch) => {
   dispatch({ type: "GET_PIZZABYID_REQUEST" });
   try {
     const response = await axios.post("/api/pizzas/getpizzabyid", { pizzaId });
+
     dispatch({ type: "GET_PIZZABYID_SUCCESS", payload: response.data });
   } catch (err) {
     dispatch({ type: "GET_PIZZABYID_FAIL", payload: err });
@@ -60,11 +61,11 @@ export const filterPizza = (searchkey, category) => async (dispatch) => {
   try {
     const res = await axios.get("/api/pizzas/getAllPizzas");
     filterdPizza = res.data.filter((pizza) =>
-      pizza.name.toLowerCase().includes(searchkey)
+        pizza.name.toLowerCase().includes(searchkey)
     );
     if (category !== "all") {
       filterdPizza = res.data.filter(
-        (pizza) => pizza.category.toLowerCase() === category
+          (pizza) => pizza.category.toLowerCase() === category
       );
     }
     dispatch({ type: "GET_PIZZAS_SUCCESS", payload: filterdPizza });

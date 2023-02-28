@@ -6,7 +6,6 @@ const Pizza = ({ pizza }) => {
   const [varient, setVarient] = useState("small");
   const [quantity, setQuantity] = useState(1);
   const [show, setShow] = useState(false);
-
   const dispatch = useDispatch();
 
   const addToCartHandler = () => {
@@ -31,7 +30,7 @@ const Pizza = ({ pizza }) => {
                   className={"p-1"}
                 >
                   {pizza.varients.map((varient) => (
-                    <option>{varient}</option>
+                      <option key={varient}>{varient}</option>
                   ))}
                 </select>
               </Col>
@@ -39,12 +38,13 @@ const Pizza = ({ pizza }) => {
               <Col md={6}>
                 <h6>Quantity</h6>
                 <select
-                  value={quantity}
-                  onChange={(e) => setQuantity(e.target.value)}
-                  className={"p-1"}
+                    value={quantity}
+                    onChange={(e) => setQuantity(e.target.value)}
                 >
                   {[...Array(10).keys()].map((v, i) => (
-                    <option value={i + 1}>{i + 1}</option>
+                      <option key={i + 1} value={i + 1}>
+                        {i + 1}
+                      </option>
                   ))}
                 </select>
               </Col>
@@ -97,6 +97,7 @@ const Pizza = ({ pizza }) => {
       </Modal>
     </>
   );
+
 };
 
 export default Pizza;

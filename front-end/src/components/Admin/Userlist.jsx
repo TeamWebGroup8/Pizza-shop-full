@@ -14,39 +14,39 @@ const Userlist = () => {
     dispatch(getAllUsers());
   }, [dispatch]);
   return (
-    <div>
-      <h1>User List</h1>
-      {loading && <Loader />}
-      {error && <Error error="Error While Fetching Users" />}
-      <Table striped bordered hover>
-        <thead>
+      <div>
+        <h1>User List</h1>
+        {loading && <Loader />}
+        {error && <Error error="Error While Fetching Users" />}
+        <Table striped bordered hover>
+          <thead>
           <tr>
             <th>User ID</th>
             <th>Name</th>
             <th>Email</th>
             <th>Delete</th>
           </tr>
-        </thead>
-        <tbody>
+          </thead>
+          <tbody>
           {users &&
-            users.map((user) => (
-              <tr key={user._id}>
-                <td>{user._id}</td>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-                <td>
-                  <AiFillDelete
-                    style={{ color: "red", cursor: "pointer" }}
-                    onClick={() => {
-                      dispatch(deleteUser(user._id));
-                    }}
-                  />
-                </td>
-              </tr>
-            ))}
-        </tbody>
-      </Table>
-    </div>
+              users.map((user) => (
+                  <tr key={user._id}>
+                    <td>{user._id}</td>
+                    <td>{user.name}</td>
+                    <td>{user.email}</td>
+                    <td>
+                      <AiFillDelete
+                          style={{ color: "red", cursor: "pointer" }}
+                          onClick={() => {
+                            dispatch(deleteUser(user._id));
+                          }}
+                      />
+                    </td>
+                  </tr>
+              ))}
+          </tbody>
+        </Table>
+      </div>
   );
 };
 

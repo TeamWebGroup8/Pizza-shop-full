@@ -8,8 +8,8 @@ import Error from "./../Error";
 const EditPizza = ({ match }) => {
   const [name, setname] = useState("");
   const [smallPrice, setsmallPrice] = useState();
-  const [mediumPrice, setmediumPrice] = useState();
   const [largprice, setlargprice] = useState();
+  const [mediumPrice, setmediumPrice] = useState();
   const [image, setimage] = useState("");
   const [description, setdescription] = useState("");
   const [category, setcategory] = useState("");

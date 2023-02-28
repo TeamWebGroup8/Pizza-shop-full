@@ -14,7 +14,7 @@ const NavBar = () => {
               <Container>
                 <Navbar.Brand>
                   <Image
-                      src="images/logo-p.png"
+                      src="images/logo.png"
                       alt="logo"
                       style={{ height: "50px" }}
             />

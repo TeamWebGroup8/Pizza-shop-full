@@ -16,6 +16,9 @@ const TopBar = () => {
             <LinkContainer to="/" activeClassName="">
               <Nav.Link>Home</Nav.Link>
             </LinkContainer>
+            <LinkContainer to="/category" activeClassName="">
+              <Nav.Link>Category</Nav.Link>
+            </LinkContainer>
             <LinkContainer to="/about" activeClassName="">
               <Nav.Link>About Us</Nav.Link>
             </LinkContainer>

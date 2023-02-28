@@ -2,22 +2,29 @@ import React, { useState } from "react";
 import { Form, Col, Row, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { filterPizza } from "../actions/pizzaAction";
-const Filters = () => {
-  const [searchkey, setsearchkey] = useState("");
-  const [category] = useState("all");
+const Filter_Cate = () => {
+  const [searchkey] = useState("");
+  const [category, setcategory] = useState("all");
   const dispatch = useDispatch();
   return (
     <div className=" mt-2">
       <Form>
         <Row>
           <Col>
-            <Form.Control
-              value={searchkey}
-              onChange={(e) => setsearchkey(e.target.value)}
-              placeholder="serach pizza"
-            />
-          </Col>
+            <select
+              className="form-select"
+              value={category}
+              onChange={(e) => setcategory(e.target.value)}
+            >
+              <option>All</option>
+              <option>pizza</option>
+              <option>beverage</option>
+              <option>pastas</option>
+              <option>salad</option>
+              <option>appetizers</option>
 
+            </select>
+          </Col>
           <Col>
             <Button
               type="button"
@@ -26,7 +33,7 @@ const Filters = () => {
                 dispatch(filterPizza(searchkey, category));
               }}
             >
-              Search
+              Fillter Categorys
             </Button>
           </Col>
         </Row>
@@ -35,4 +42,4 @@ const Filters = () => {
   );
 };
 
-export default Filters;
+export default Filter_Cate;

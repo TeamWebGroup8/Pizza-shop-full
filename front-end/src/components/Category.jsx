@@ -6,9 +6,8 @@ import { getAllPizzas } from "../actions/pizzaAction";
 import Pizza from "../components/Pizza";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
-import Filters from "../components/Filters";
-
-const HomeScreen = () => {
+import Filter_Cate from "./Filter_Cate";
+const Category = () => {
   const dispatch = useDispatch();
   const pizzastate = useSelector((state) => state.getAllPizzaReducer);
   const { loading, pizzas, error } = pizzastate;
@@ -30,7 +29,7 @@ const HomeScreen = () => {
           <Error>Error while fetching pizzas {error}</Error>
         ) : (
           <Row>
-            <Filters />
+            <Filter_Cate />
             {pizzas.slice(0, visible).map((pizza) => (
               <Col md={4} key={pizza.name}>
                 <Pizza pizza={pizza} />
@@ -52,4 +51,4 @@ const HomeScreen = () => {
   );
 };
 
-export default HomeScreen;
+export default Category;

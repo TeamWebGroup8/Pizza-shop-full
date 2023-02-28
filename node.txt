@@ -1,5 +1,4 @@
-veg = pizza
-nonveg = beravage
+payment in website stripe
 
 
 
